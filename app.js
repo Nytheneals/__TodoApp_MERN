@@ -28,4 +28,4 @@ mongoose.connection.on('error', (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
-app.listen(process.env.PORT || 3400, () => console.log('App running on PORT 3000!'));
+app.listen(process.env.PORT || 3400, () => console.log('App running on PORT 3400!'));
