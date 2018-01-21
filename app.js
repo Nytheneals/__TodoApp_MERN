@@ -6,8 +6,8 @@ const routes = require('./routes/router.js');
 
 const app = express();
 
-// MIDDLEWARE
-app.set('views', path.join(__dirname, 'views'));
+// MIDDLEWARE SERVING UP STATIC FILES
+app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // parse application/json
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ROUTES
 app.use('/api', routes);
 app.get('/', (req, res) => {
-  res.send('index');
+  res.sendFile('index.html');
 });
 
 // ERROR handling MIDDLEWARE
