@@ -1,12 +1,14 @@
 const express = require('express');
-
-const app = express();
-const routes = require('./routes/router.js');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
+const routes = require('./routes/router.js');
+
+const app = express();
 
 // MIDDLEWARE
-app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -17,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ROUTES
 app.use('/api', routes);
 app.get('/', (req, res) => {
-  res.json({ Group_Name: 'Bafana, Bafana' });
+  res.send('index');
 });
 
 // ERROR handling MIDDLEWARE
