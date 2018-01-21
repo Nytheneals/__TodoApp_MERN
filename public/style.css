@@ -3,6 +3,8 @@
 body {
   font-family: "Montserrat", sans-serif;
   background: #ecf0f1;
+  margin: 20px 0;
+  /* width: 80%; */
 }
 
 /* HEADER STYLES */
