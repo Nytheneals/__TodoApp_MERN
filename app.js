@@ -7,17 +7,24 @@ const bodyParser = require('body-parser');
 
 // MIDDLEWARE
 app.use(express.static('public'));
+
+// parse application/json
 app.use(bodyParser.json());
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// ROUTES
 app.use('/api', routes);
 app.get('/', (req, res) => {
   res.json({ Group_Name: 'Bafana, Bafana' });
 });
 
+// ERROR handling MIDDLEWARE
 app.use((err, req, res, next) => {
   res.send({ error: err.message });
   console.log({ error: err.message });
 });
-// ERROR handling MIDDLEWARE
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
