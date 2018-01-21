@@ -5,6 +5,7 @@ const routes = require('./routes/router.js');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// MIDDLEWARE
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use('/api', routes);
